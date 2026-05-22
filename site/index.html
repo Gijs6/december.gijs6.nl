@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>december</title>
+
+        <link rel="canonical" href="https://december.gijs6.nl/" />
+        <link rel="me" href="https://gijs6.nl/contact" />
+        <link rel="license" href="https://unlicense.org/" />
+
+        <style>
+            :root {
+                color-scheme: dark;
+            }
+
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: linear-gradient(135deg, #00d4ff, #ff005e);
+                color: white;
+
+                padding: 0.5em;
+
+                min-height: 100vh;
+                display: grid;
+            }
+
+            main {
+                background: #070c1e;
+
+                padding: 2em;
+
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            h1 {
+                margin-bottom: 0.5em;
+            }
+
+            a {
+                color: currentColor;
+            }
+
+            s {
+                text-decoration-thickness: 3px;
+            }
+
+            p:last-child {
+                margin-top: auto;
+                padding-top: 1em;
+                text-align: right;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <script>
+                function randomColor() {
+                    const r = Math.floor(Math.random() * 256);
+                    const g = Math.floor(Math.random() * 256);
+                    const b = Math.floor(Math.random() * 256);
+                    return { r, g, b, css: `rgb(${r}, ${g}, ${b})` };
+                }
+
+                const color1 = randomColor();
+                const color2 = randomColor();
+                const angle = Math.floor(Math.random() * 360);
+
+                document.body.style.background = `linear-gradient(${angle}deg, ${color1.css}, ${color2.css})`;
+
+                // Create favicon
+                const canvas = document.createElement("canvas");
+                canvas.width = 32;
+                canvas.height = 32;
+                const ctx = canvas.getContext("2d");
+
+                const rad = (angle * Math.PI) / 180;
+                const x0 = 16 + 16 * Math.cos(rad + Math.PI);
+                const y0 = 16 + 16 * Math.sin(rad + Math.PI);
+                const x1 = 16 + 16 * Math.cos(rad);
+                const y1 = 16 + 16 * Math.sin(rad);
+
+                const gradient = ctx.createLinearGradient(x0, y0, x1, y1);
+                gradient.addColorStop(0, color1.css);
+                gradient.addColorStop(1, color2.css);
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, 32, 32);
+
+                const link = document.createElement("link");
+                link.rel = "icon";
+                link.href = canvas.toDataURL("image/png");
+                document.head.appendChild(link);
+
+                setGradientAndFavicon();
+            </script>
+
+            <h1><s id="month"></s> december</h1>
+
+            <script>
+                const monthNames = [
+                    "january",
+                    "february",
+                    "march",
+                    "april",
+                    "may",
+                    "june",
+                    "july",
+                    "august",
+                    "september",
+                    "october",
+                    "november",
+                    "december"
+                ];
+
+                const now = new Date();
+                const currentMonth = now.getMonth();
+
+                const currentMonthName = monthNames[now.getMonth()];
+                const monthEl = document.getElementById("month");
+
+                if (currentMonth != 11) {
+                    monthEl.innerText = currentMonthName;
+                } else {
+                    monthEl.remove();
+                }
+            </script>
+            <p id="site">
+                curiosity (or, more likely, a mistake or a dead url) led you
+                here, and here is nothing.
+            </p>
+
+            <script>
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const from = urlParams.get("from");
+
+                if (from) {
+                    const siteEl = document.getElementById("site");
+                    siteEl.innerHTML += ` there was no site found at <b>${from}</b>.`;
+                }
+            </script>
+
+            <p>
+                maybe it moved, or perhaps it never existed. don't worry, you
+                didn't break anything... hopefully.
+            </p>
+
+            <p>this is already the end. the void thanks you for your visit.</p>
+
+            <p><a href="https://gijs6.nl">~ Gijs6</a></p>
+        </main>
+    </body>
+</html>
