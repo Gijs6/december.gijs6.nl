@@ -1,163 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <title>december</title>
+        <meta name="description" content="december - the server behind gijs6.nl and everything else." />
 
         <link rel="canonical" href="https://december.gijs6.nl/" />
         <link rel="me" href="https://gijs6.nl/contact" />
         <link rel="license" href="https://unlicense.org/" />
 
-        <style>
-            :root {
-                color-scheme: dark;
-            }
+        <link rel="stylesheet" href="style.css" />
 
-            * {
-                padding: 0;
-                margin: 0;
-                box-sizing: border-box;
-            }
+        <script>
+            const hue = Math.floor(Math.random() * 360);
+            document.documentElement.style.setProperty("--hue", hue);
+            const accent = `hsl(${hue}, 68%, 62%)`;
+            document.documentElement.style.setProperty("--accent", accent);
 
-            body {
-                background: linear-gradient(135deg, #00d4ff, #ff005e);
-                color: white;
-
-                padding: 0.5em;
-
-                min-height: 100vh;
-                display: grid;
-            }
-
-            main {
-                background: #070c1e;
-
-                padding: 2em;
-
-                display: flex;
-                flex-direction: column;
-                gap: 1em;
-            }
-
-            h1 {
-                margin-bottom: 0.5em;
-            }
-
-            a {
-                color: currentColor;
-            }
-
-            s {
-                text-decoration-thickness: 3px;
-            }
-
-            p:last-child {
-                margin-top: auto;
-                padding-top: 1em;
-                text-align: right;
-            }
-        </style>
+            const canvas = document.createElement("canvas");
+            canvas.width = 32;
+            canvas.height = 32;
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#1c1b17";
+            ctx.fillRect(0, 0, 32, 32);
+            ctx.fillStyle = accent;
+            ctx.font = "bold 22px monospace";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(">", 16, 17);
+            const link = document.createElement("link");
+            link.rel = "icon";
+            link.href = canvas.toDataURL("image/png");
+            document.head.appendChild(link);
+        </script>
     </head>
 
     <body>
         <main>
-            <script>
-                function randomColor() {
-                    const r = Math.floor(Math.random() * 256);
-                    const g = Math.floor(Math.random() * 256);
-                    const b = Math.floor(Math.random() * 256);
-                    return { r, g, b, css: `rgb(${r}, ${g}, ${b})` };
-                }
+            <header>
+                <h1>december</h1>
+                <p id="site"></p>
+                <p>this is december, the server behind all of the following sites :)</p>
+                <script>
+                    const from = new URLSearchParams(window.location.search).get("from");
+                    if (from) {
+                        document.getElementById("site").innerHTML = `you tried to visit <b>${from}</b>, but it doesn't exist. welcome anyway!`;
+                    } else {
+                        document.getElementById("site").innerHTML = `curiosity led you here.`;
+                    }
+                </script>
+            </header>
 
-                const color1 = randomColor();
-                const color2 = randomColor();
-                const angle = Math.floor(Math.random() * 360);
+            <section>
+                <h2>sites</h2>
+                <ul>
+                    <li><a href="https://gijs6.nl">gijs6.nl</a><span>personal site and blog</span></li>
+                    <li><a href="https://contact.gijs6.nl">contact.gijs6.nl</a><span>contact page</span></li>
+                    <li><a href="https://timecapsule.gijs6.nl">timecapsule.gijs6.nl</a><span>archive of old versions of gijs6.nl</span></li>
+                    <li><a href="https://school.gijs6.nl">school.gijs6.nl</a><span>school summaries</span></li>
+                    <li><a href="https://craptacular.eu">craptacular.eu</a><span>the best site ever</span></li>
+                </ul>
+            </section>
 
-                document.body.style.background = `linear-gradient(${angle}deg, ${color1.css}, ${color2.css})`;
+            <section>
+                <h2>apps</h2>
+                <ul>
+                    <li><a href="https://music.gijs6.nl">music.gijs6.nl</a><span>music collection and wishlist</span></li>
+                    <li><a href="https://meliag.gijs6.nl">meliag.gijs6.nl</a><span>Dutch train departure info</span></li>
+                    <li><a href="https://outflow.gijs6.nl">outflow.gijs6.nl</a><span>weather app</span></li>
+                    <li><a href="https://cijfers.gijs6.nl">cijfers.gijs6.nl</a><span>grade calculator</span></li>
+                    <li><a href="https://huebox.gijs6.nl">huebox.gijs6.nl</a><span>color palette app</span></li>
+                    <li><a href="https://watchtower.gijs6.nl">watchtower.gijs6.nl</a><span>site change monitor</span></li>
+                </ul>
+            </section>
 
-                // Create favicon
-                const canvas = document.createElement("canvas");
-                canvas.width = 32;
-                canvas.height = 32;
-                const ctx = canvas.getContext("2d");
+            <section>
+                <h2>infrastructure</h2>
+                <ul>
+                    <li><a href="https://api.gijs6.nl">api.gijs6.nl</a><span>REST API server</span></li>
+                    <li><a href="https://keys.gijs6.nl">keys.gijs6.nl</a><span>public SSH and GPG keys</span></li>
+                    <li><a href="https://cdn.gijs6.nl">cdn.gijs6.nl</a><span>CDN</span></li>
+                </ul>
+            </section>
 
-                const rad = (angle * Math.PI) / 180;
-                const x0 = 16 + 16 * Math.cos(rad + Math.PI);
-                const y0 = 16 + 16 * Math.sin(rad + Math.PI);
-                const x1 = 16 + 16 * Math.cos(rad);
-                const y1 = 16 + 16 * Math.sin(rad);
+            <section>
+                <h2>defunct</h2>
+                <ul>
+                    <li><s>ckv.gijs6.nl</s><span>old CKV site</span></li>
+                    <li><s>blog.gijs6.nl</s><span>old blog (currently at <a href="https://gijs6.nl/blog">gijs6.nl/blog</a>)</span></li>
+                    <li><s>key.gijs6.nl</s><span>old SSH key (currently at <a href="https://keys.gijs6.nl/ssh">keys.gijs6.nl/ssh</a>)</span></li>
+                    <li><s>archive.gijs6.nl</s><span>old archive site for gijs6.nl (currently at <a href="https://timecapsule.gijs6.nl">timecapsule.gijs6.nl</a>)</span></li>
+                    <li><s>code.gijs6.nl</s><span>old code snippets site</span></li>
+                </ul>
+            </section>
 
-                const gradient = ctx.createLinearGradient(x0, y0, x1, y1);
-                gradient.addColorStop(0, color1.css);
-                gradient.addColorStop(1, color2.css);
-
-                ctx.fillStyle = gradient;
-                ctx.fillRect(0, 0, 32, 32);
-
-                const link = document.createElement("link");
-                link.rel = "icon";
-                link.href = canvas.toDataURL("image/png");
-                document.head.appendChild(link);
-
-                setGradientAndFavicon();
-            </script>
-
-            <h1><s id="month"></s> december</h1>
-
-            <script>
-                const monthNames = [
-                    "january",
-                    "february",
-                    "march",
-                    "april",
-                    "may",
-                    "june",
-                    "july",
-                    "august",
-                    "september",
-                    "october",
-                    "november",
-                    "december"
-                ];
-
-                const now = new Date();
-                const currentMonth = now.getMonth();
-
-                const currentMonthName = monthNames[now.getMonth()];
-                const monthEl = document.getElementById("month");
-
-                if (currentMonth != 11) {
-                    monthEl.innerText = currentMonthName;
-                } else {
-                    monthEl.remove();
-                }
-            </script>
-            <p id="site">
-                curiosity (or, more likely, a mistake or a dead url) led you
-                here, and here is nothing.
-            </p>
-
-            <script>
-                const queryString = window.location.search;
-                const urlParams = new URLSearchParams(queryString);
-                const from = urlParams.get("from");
-
-                if (from) {
-                    const siteEl = document.getElementById("site");
-                    siteEl.innerHTML += ` there was no site found at <b>${from}</b>.`;
-                }
-            </script>
-
-            <p>
-                maybe it moved, or perhaps it never existed. don't worry, you
-                didn't break anything... hopefully.
-            </p>
-
-            <p>this is already the end. the void thanks you for your visit.</p>
-
-            <p><a href="https://gijs6.nl">~ Gijs6</a></p>
+            <footer><a href="https://gijs6.nl">~ Gijs6</a></footer>
         </main>
     </body>
 </html>

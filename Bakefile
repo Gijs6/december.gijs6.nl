@@ -4,16 +4,11 @@ format() {
   prettier --write "site/**/*.{css,js,html,xml}"
 }
 
-build() {
-  npm run build:css
-}
-
 serve() {
   server --dir site --port 8005
 }
 
 deploy() {
-  build
   format
   lift deploy
 }
