@@ -26,9 +26,7 @@
 
 body {
     background: var(--bg);
-    background-image:
-        radial-gradient(ellipse 75% 55% at 2% 0%, hsl(var(--hue, 30), 55%, 26%) 0%, transparent 100%),
-        radial-gradient(ellipse 60% 45% at 98% 100%, hsl(var(--hue, 30), 35%, 16%) 0%, transparent 100%);
+    background-image: radial-gradient(ellipse 75% 55% at 2% 0%, hsl(var(--hue, 30), 55%, 26%) 0%, transparent 100%), radial-gradient(ellipse 60% 45% at 98% 100%, hsl(var(--hue, 30), 35%, 16%) 0%, transparent 100%);
     color: var(--fg);
     font-family: ui-monospace, "Cascadia Code", "Fira Mono", "Menlo", monospace;
     min-height: 100vh;
@@ -53,7 +51,7 @@ h1 {
     font-weight: 700;
     line-height: 1;
     color: var(--fg);
-    margin-bottom: .25em;
+    margin-bottom: 0.25em;
 }
 
 h1::before {
@@ -76,10 +74,12 @@ header p#site {
     font-weight: 900;
 }
 
-header p#site b {
+header p#site code {
+    font: inherit;
     text-decoration: underline;
 }
 
+nav,
 section {
     display: flex;
     flex-direction: column;
@@ -96,12 +96,11 @@ h2::before {
     color: var(--accent);
 }
 
-ul {
-    list-style: none;
+dl {
     border-top: 1px solid var(--muted);
 }
 
-li {
+dl > div {
     display: grid;
     grid-template-columns: auto 1fr 2fr;
     align-items: baseline;
@@ -111,45 +110,49 @@ li {
     font-size: 0.9em;
 }
 
-li::before {
+dl > div::before {
     content: ">>";
     color: var(--accent);
 }
 
-li a {
+dl > div dt a {
     color: var(--fg);
     text-decoration: none;
     white-space: nowrap;
 }
 
-li a:hover {
+dl > div dt a:hover {
     color: var(--accent);
 }
 
-li span {
+dl > div dd {
     color: var(--muted);
 }
 
-li span a {
+dl > div dd a {
     color: var(--muted);
 }
 
-li s {
+dl > div dt s {
     text-decoration: none;
 }
 
 @media (max-width: 600px) {
-    li {
+    dl > div {
         grid-template-columns: auto 1fr;
     }
 
-    li span {
+    dl > div dd {
         grid-column: 2;
     }
 }
 
 footer {
     margin-top: auto;
+}
+
+footer address {
+    font-style: normal;
 }
 
 footer a {

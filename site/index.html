@@ -41,62 +41,121 @@
         <main>
             <header>
                 <h1>december</h1>
-                <p id="site"></p>
+                <p id="site" aria-live="polite"></p>
                 <p>this is december, the server behind all of the following sites :)</p>
                 <script>
                     const from = new URLSearchParams(window.location.search).get("from");
                     if (from) {
-                        document.getElementById("site").innerHTML = `you tried to visit <b>${from}</b>, but it doesn't exist. welcome anyway!`;
+                        document.getElementById("site").innerHTML = `you tried to visit <code>${from}</code>, but it doesn't exist. welcome anyway!`;
                     } else {
                         document.getElementById("site").innerHTML = `curiosity led you here.`;
                     }
                 </script>
             </header>
 
-            <section>
+            <nav>
                 <h2>sites</h2>
-                <ul>
-                    <li><a href="https://gijs6.nl">gijs6.nl</a><span>personal site and blog</span></li>
-                    <li><a href="https://contact.gijs6.nl">contact.gijs6.nl</a><span>contact page</span></li>
-                    <li><a href="https://timecapsule.gijs6.nl">timecapsule.gijs6.nl</a><span>archive of old versions of gijs6.nl</span></li>
-                    <li><a href="https://school.gijs6.nl">school.gijs6.nl</a><span>school summaries</span></li>
-                    <li><a href="https://craptacular.eu">craptacular.eu</a><span>the best site ever</span></li>
-                </ul>
-            </section>
+                <dl>
+                    <div>
+                        <dt><a href="https://gijs6.nl" rel="noopener noreferrer">gijs6.nl</a></dt>
+                        <dd>personal site and blog</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://contact.gijs6.nl" rel="noopener noreferrer">contact.gijs6.nl</a></dt>
+                        <dd>contact page</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://timecapsule.gijs6.nl" rel="noopener noreferrer">timecapsule.gijs6.nl</a></dt>
+                        <dd>archive of old versions of gijs6.nl</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://school.gijs6.nl" hreflang="nl" rel="noopener noreferrer">school.gijs6.nl</a></dt>
+                        <dd>school summaries</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://craptacular.eu" rel="noopener noreferrer">craptacular.eu</a></dt>
+                        <dd>the best site ever</dd>
+                    </div>
+                </dl>
+            </nav>
 
-            <section>
+            <nav>
                 <h2>apps</h2>
-                <ul>
-                    <li><a href="https://music.gijs6.nl">music.gijs6.nl</a><span>music collection and wishlist</span></li>
-                    <li><a href="https://meliag.gijs6.nl">meliag.gijs6.nl</a><span>Dutch train departure info</span></li>
-                    <li><a href="https://outflow.gijs6.nl">outflow.gijs6.nl</a><span>weather app</span></li>
-                    <li><a href="https://cijfers.gijs6.nl">cijfers.gijs6.nl</a><span>grade calculator</span></li>
-                    <li><a href="https://huebox.gijs6.nl">huebox.gijs6.nl</a><span>color palette app</span></li>
-                    <li><a href="https://watchtower.gijs6.nl">watchtower.gijs6.nl</a><span>site change monitor</span></li>
-                </ul>
-            </section>
+                <dl>
+                    <div>
+                        <dt><a href="https://music.gijs6.nl" rel="noopener noreferrer">music.gijs6.nl</a></dt>
+                        <dd>music collection and wishlist</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://meliag.gijs6.nl" hreflang="nl" rel="noopener noreferrer">meliag.gijs6.nl</a></dt>
+                        <dd>Dutch train departure info</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://outflow.gijs6.nl" rel="noopener noreferrer">outflow.gijs6.nl</a></dt>
+                        <dd>weather app</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://cijfers.gijs6.nl" hreflang="nl" rel="noopener noreferrer">cijfers.gijs6.nl</a></dt>
+                        <dd>grade calculator</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://huebox.gijs6.nl" rel="noopener noreferrer">huebox.gijs6.nl</a></dt>
+                        <dd>color palette app</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://watchtower.gijs6.nl" rel="noopener noreferrer">watchtower.gijs6.nl</a></dt>
+                        <dd>site change monitor</dd>
+                    </div>
+                </dl>
+            </nav>
 
-            <section>
+            <nav>
                 <h2>infrastructure</h2>
-                <ul>
-                    <li><a href="https://api.gijs6.nl">api.gijs6.nl</a><span>REST API server</span></li>
-                    <li><a href="https://keys.gijs6.nl">keys.gijs6.nl</a><span>public SSH and GPG keys</span></li>
-                    <li><a href="https://cdn.gijs6.nl">cdn.gijs6.nl</a><span>CDN</span></li>
-                </ul>
-            </section>
+                <dl>
+                    <div>
+                        <dt><a href="https://api.gijs6.nl" rel="noopener noreferrer">api.gijs6.nl</a></dt>
+                        <dd><abbr title="Representational State Transfer">REST</abbr> <abbr title="Application Programming Interface">API</abbr> server</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://keys.gijs6.nl" rel="noopener noreferrer">keys.gijs6.nl</a></dt>
+                        <dd>public <abbr title="Secure Shell">SSH</abbr> and <abbr title="GNU Privacy Guard">GPG</abbr> keys</dd>
+                    </div>
+                    <div>
+                        <dt><a href="https://cdn.gijs6.nl" rel="noopener noreferrer">cdn.gijs6.nl</a></dt>
+                        <dd><abbr title="Content Delivery Network">CDN</abbr></dd>
+                    </div>
+                </dl>
+            </nav>
 
             <section>
                 <h2>defunct</h2>
-                <ul>
-                    <li><s>ckv.gijs6.nl</s><span>old CKV site</span></li>
-                    <li><s>blog.gijs6.nl</s><span>old blog (currently at <a href="https://gijs6.nl/blog">gijs6.nl/blog</a>)</span></li>
-                    <li><s>key.gijs6.nl</s><span>old SSH key (currently at <a href="https://keys.gijs6.nl/ssh">keys.gijs6.nl/ssh</a>)</span></li>
-                    <li><s>archive.gijs6.nl</s><span>old archive site for gijs6.nl (currently at <a href="https://timecapsule.gijs6.nl">timecapsule.gijs6.nl</a>)</span></li>
-                    <li><s>code.gijs6.nl</s><span>old code snippets site</span></li>
-                </ul>
+                <dl>
+                    <div>
+                        <dt><s>ckv.gijs6.nl</s></dt>
+                        <dd>old <abbr title="Culturele en Kunstzinnige Vorming" lang="nl">CKV</abbr> site</dd>
+                    </div>
+                    <div>
+                        <dt><s>blog.gijs6.nl</s></dt>
+                        <dd>old blog (currently at <a href="https://gijs6.nl/blog" hreflang="nl" rel="noopener noreferrer">gijs6.nl/blog</a>)</dd>
+                    </div>
+                    <div>
+                        <dt><s>key.gijs6.nl</s></dt>
+                        <dd>old <abbr title="Secure Shell">SSH</abbr> key (currently at <a href="https://keys.gijs6.nl/ssh" rel="noopener noreferrer">keys.gijs6.nl/ssh</a>)</dd>
+                    </div>
+                    <div>
+                        <dt><s>archive.gijs6.nl</s></dt>
+                        <dd>old archive site for gijs6.nl (currently at <a href="https://timecapsule.gijs6.nl" rel="noopener noreferrer">timecapsule.gijs6.nl</a>)</dd>
+                    </div>
+                    <div>
+                        <dt><s>code.gijs6.nl</s></dt>
+                        <dd>old code snippets site</dd>
+                    </div>
+                </dl>
             </section>
 
-            <footer><a href="https://gijs6.nl">~ Gijs6</a></footer>
+            <footer>
+                <address><a href="https://gijs6.nl" rel="author noopener noreferrer">~ Gijs6</a></address>
+            </footer>
         </main>
     </body>
 </html>
