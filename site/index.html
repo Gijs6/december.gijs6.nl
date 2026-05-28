@@ -45,10 +45,15 @@
                 <p>this is december, the server behind all of the following sites :)</p>
                 <script>
                     const from = new URLSearchParams(window.location.search).get("from");
+                    const siteEl = document.getElementById("site");
                     if (from) {
-                        document.getElementById("site").innerHTML = `you tried to visit <code>${from}</code>, but it doesn't exist. welcome anyway!`;
+                        siteEl.append("you tried to visit ");
+                        const code = document.createElement("code");
+                        code.textContent = from;
+                        siteEl.append(code);
+                        siteEl.append(", but it doesn't exist. welcome anyway!");
                     } else {
-                        document.getElementById("site").innerHTML = `curiosity led you here.`;
+                        siteEl.textContent = "curiosity led you here.";
                     }
                 </script>
             </header>
