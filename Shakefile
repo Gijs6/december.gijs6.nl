@@ -1,0 +1,11 @@
+#!/bin/bash
+SRC="site/**"
+
+serve() {
+  i:serve_static site 8005
+}
+
+deploy() {
+  format
+  g:deploy
+}
