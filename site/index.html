@@ -5,163 +5,162 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <title>december</title>
-        <meta name="description" content="december - the server behind gijs6.nl and everything else." />
+        <meta name="description" content="december, the server behind gijs6.nl and everything else." />
 
         <link rel="canonical" href="https://december.gijs6.nl/" />
         <link rel="me" href="https://gijs6.nl/contact" />
         <link rel="license" href="https://unlicense.org/" />
 
-        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%23ddd' font-family='monospace'%3Ed%3C/text%3E%3C/svg%3E" />
 
-        <script>
-            const hue = Math.floor(Math.random() * 360);
-            document.documentElement.style.setProperty("--hue", hue);
-            const accent = `hsl(${hue}, 68%, 62%)`;
-            document.documentElement.style.setProperty("--accent", accent);
+        <style>
+            :root {
+                --bg: #111;
+                --fg: #eee;
+                --muted: #bbb;
+            }
 
-            const canvas = document.createElement("canvas");
-            canvas.width = 32;
-            canvas.height = 32;
-            const ctx = canvas.getContext("2d");
-            ctx.fillStyle = "#1c1b17";
-            ctx.fillRect(0, 0, 32, 32);
-            ctx.fillStyle = accent;
-            ctx.font = "bold 22px monospace";
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
-            ctx.fillText(">", 16, 17);
-            const link = document.createElement("link");
-            link.rel = "icon";
-            link.href = canvas.toDataURL("image/png");
-            document.head.appendChild(link);
-        </script>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: var(--bg);
+                color: var(--fg);
+                font-family: monospace;
+                line-height: 1.7;
+                padding: 2rem 1.25rem 4rem;
+            }
+
+            main {
+                max-width: 42rem;
+                margin: 0 auto;
+            }
+
+            h1 {
+                font-weight: 700;
+            }
+
+            p {
+                color: var(--muted);
+            }
+
+            h2 {
+                font-weight: 700;
+                margin-top: 1.7rem;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            a {
+                color: var(--fg);
+            }
+
+            .desc,
+            .desc a {
+                color: var(--muted);
+            }
+
+            .dead {
+                color: var(--muted);
+                text-decoration: line-through;
+            }
+
+            footer {
+                max-width: 42rem;
+                margin: 2.5rem auto 0;
+                color: var(--muted);
+            }
+
+            footer a {
+                color: var(--muted);
+                text-decoration: underline;
+            }
+
+            footer a:hover {
+                color: var(--fg);
+            }
+
+            .why p {
+                margin-top: 0.7rem;
+            }
+        </style>
     </head>
 
     <body>
         <main>
-            <header>
-                <h1>december</h1>
-                <p id="site" aria-live="polite"></p>
-                <p>this is december, the server behind all of the following sites :)</p>
-                <script>
-                    const from = new URLSearchParams(window.location.search).get("from");
-                    const siteEl = document.getElementById("site");
-                    if (from) {
-                        siteEl.append("you tried to visit ");
-                        const code = document.createElement("code");
-                        code.textContent = from;
-                        siteEl.append(code);
-                        siteEl.append(", but it doesn't exist anymore. or yet.");
-                    } else {
-                        siteEl.textContent = "curiosity led you here.";
-                    }
-                </script>
-            </header>
+            <h1>december</h1>
+            <p>the server behind gijs6.nl and everything below.</p>
 
-            <nav>
-                <h2>sites</h2>
-                <dl>
-                    <div>
-                        <dt><a href="https://gijs6.nl" rel="noopener noreferrer">gijs6.nl</a></dt>
-                        <dd>personal site and blog</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://contact.gijs6.nl" rel="noopener noreferrer">contact.gijs6.nl</a></dt>
-                        <dd>contact page</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://timecapsule.gijs6.nl" rel="noopener noreferrer">timecapsule.gijs6.nl</a></dt>
-                        <dd>archive of old versions of gijs6.nl</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://school.gijs6.nl" hreflang="nl" rel="noopener noreferrer">school.gijs6.nl</a></dt>
-                        <dd>school summaries</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://craptacular.eu" rel="noopener noreferrer">craptacular.eu</a></dt>
-                        <dd>the best site ever</dd>
-                    </div>
-                </dl>
-            </nav>
-
-            <nav>
-                <h2>apps</h2>
-                <dl>
-                    <div>
-                        <dt><a href="https://music.gijs6.nl" rel="noopener noreferrer">music.gijs6.nl</a></dt>
-                        <dd>music collection and wishlist</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://meliag.gijs6.nl" hreflang="nl" rel="noopener noreferrer">meliag.gijs6.nl</a></dt>
-                        <dd>Dutch train departure info</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://outflow.gijs6.nl" rel="noopener noreferrer">outflow.gijs6.nl</a></dt>
-                        <dd>weather app</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://cijfers.gijs6.nl" hreflang="nl" rel="noopener noreferrer">cijfers.gijs6.nl</a></dt>
-                        <dd>grade calculator</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://huebox.gijs6.nl" rel="noopener noreferrer">huebox.gijs6.nl</a></dt>
-                        <dd>color palette app</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://watchtower.gijs6.nl" rel="noopener noreferrer">watchtower.gijs6.nl</a></dt>
-                        <dd>site change monitor</dd>
-                    </div>
-                </dl>
-            </nav>
-
-            <nav>
-                <h2>infrastructure</h2>
-                <dl>
-                    <div>
-                        <dt><a href="https://api.gijs6.nl" rel="noopener noreferrer">api.gijs6.nl</a></dt>
-                        <dd>REST API server</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://keys.gijs6.nl" rel="noopener noreferrer">keys.gijs6.nl</a></dt>
-                        <dd>public SSH and GPG keys</dd>
-                    </div>
-                    <div>
-                        <dt><a href="https://cdn.gijs6.nl" rel="noopener noreferrer">cdn.gijs6.nl</a></dt>
-                        <dd>CDN</dd>
-                    </div>
-                </dl>
-            </nav>
-
-            <section>
-                <h2>defunct</h2>
-                <dl>
-                    <div>
-                        <dt><s>ckv.gijs6.nl</s></dt>
-                        <dd>old CKV site</dd>
-                    </div>
-                    <div>
-                        <dt><s>blog.gijs6.nl</s></dt>
-                        <dd>old blog (currently at <a href="https://gijs6.nl/blog" hreflang="nl" rel="noopener noreferrer">gijs6.nl/blog</a>)</dd>
-                    </div>
-                    <div>
-                        <dt><s>key.gijs6.nl</s></dt>
-                        <dd>old SSH key (currently at <a href="https://keys.gijs6.nl/ssh" rel="noopener noreferrer">keys.gijs6.nl/ssh</a>)</dd>
-                    </div>
-                    <div>
-                        <dt><s>archive.gijs6.nl</s></dt>
-                        <dd>old archive site for gijs6.nl (currently at <a href="https://timecapsule.gijs6.nl" rel="noopener noreferrer">timecapsule.gijs6.nl</a>)</dd>
-                    </div>
-                    <div>
-                        <dt><s>code.gijs6.nl</s></dt>
-                        <dd>old code snippets site</dd>
-                    </div>
-                </dl>
+            <section class="why">
+                <h2>why am i here?</h2>
+                <p>december is the little server that runs gijs6.nl and loads of other things.</p>
+                <p id="from-line" hidden></p>
+                <p id="curious-line">you probably tried to visit something that lives on here but well... it's been removed :( (or hasn't been made yet).</p>
+                <p>anyway, below is an overview of what is actually currently being served by december.</p>
             </section>
 
-            <footer>
-                <address><a href="https://gijs6.nl" rel="author noopener noreferrer">~ Gijs6</a></address>
-                <p>for contact with the webmaster, go to <a href="https://contact.gijs6.nl/webmaster" rel="noopener noreferrer">contact.gijs6.nl/webmaster</a></p>
-            </footer>
+            <h2>sites</h2>
+            <ul>
+                <li><a href="https://gijs6.nl" rel="noopener noreferrer">gijs6.nl</a><span class="desc">: personal site and blog</span></li>
+                <li><a href="https://contact.gijs6.nl" rel="noopener noreferrer">contact.gijs6.nl</a><span class="desc">: contact page</span></li>
+                <li><a href="https://timecapsule.gijs6.nl" rel="noopener noreferrer">timecapsule.gijs6.nl</a><span class="desc">: archive of old versions of gijs6.nl</span></li>
+                <li><a href="https://school.gijs6.nl" hreflang="nl" rel="noopener noreferrer">school.gijs6.nl</a><span class="desc">: school summaries</span></li>
+                <li><a href="https://craptacular.eu" rel="noopener noreferrer">craptacular.eu</a><span class="desc">: the best site ever</span></li>
+            </ul>
+
+            <h2>apps</h2>
+            <ul>
+                <li><a href="https://music.gijs6.nl" rel="noopener noreferrer">music.gijs6.nl</a><span class="desc">: music collection and wishlist</span></li>
+                <li><a href="https://meliag.gijs6.nl" hreflang="nl" rel="noopener noreferrer">meliag.gijs6.nl</a><span class="desc">: Dutch train departure info</span></li>
+                <li><a href="https://outflow.gijs6.nl" rel="noopener noreferrer">outflow.gijs6.nl</a><span class="desc">: weather app</span></li>
+                <li><a href="https://cijfers.gijs6.nl" hreflang="nl" rel="noopener noreferrer">cijfers.gijs6.nl</a><span class="desc">: grade calculator</span></li>
+                <li><a href="https://huebox.gijs6.nl" rel="noopener noreferrer">huebox.gijs6.nl</a><span class="desc">: color palette app</span></li>
+                <li><a href="https://watchtower.gijs6.nl" rel="noopener noreferrer">watchtower.gijs6.nl</a><span class="desc">: site change monitor</span></li>
+                <li><a href="https://fileflamingo.gijs6.nl" rel="noopener noreferrer">fileflamingo.gijs6.nl</a><span class="desc">: share files with expiring links</span></li>
+                <li><a href="https://gemeentle.gijs6.nl" hreflang="nl" rel="noopener noreferrer">gemeentle.gijs6.nl</a><span class="desc">: daily Dutch municipality guessing game</span></li>
+            </ul>
+
+            <h2>infrastructure</h2>
+            <ul>
+                <li><a href="https://api.gijs6.nl" rel="noopener noreferrer">api.gijs6.nl</a><span class="desc">: REST API server</span></li>
+                <li><a href="https://keys.gijs6.nl" rel="noopener noreferrer">keys.gijs6.nl</a><span class="desc">: public SSH and GPG keys</span></li>
+                <li><a href="https://cdn.gijs6.nl" rel="noopener noreferrer">cdn.gijs6.nl</a><span class="desc">: CDN</span></li>
+            </ul>
+
+            <h2>defunct</h2>
+            <ul>
+                <li><span class="dead">ckv.gijs6.nl</span><span class="desc">: old CKV site</span></li>
+                <li><span class="dead">blog.gijs6.nl</span><span class="desc">: old blog, now at <a href="https://gijs6.nl/blog" hreflang="nl" rel="noopener noreferrer">gijs6.nl/blog</a></span></li>
+                <li><span class="dead">key.gijs6.nl</span><span class="desc">: old SSH key, now at <a href="https://keys.gijs6.nl/ssh" rel="noopener noreferrer">keys.gijs6.nl/ssh</a></span></li>
+                <li><span class="dead">archive.gijs6.nl</span><span class="desc">: old archive site, now at <a href="https://timecapsule.gijs6.nl" rel="noopener noreferrer">timecapsule.gijs6.nl</a></span></li>
+                <li><span class="dead">code.gijs6.nl</span><span class="desc">: old code snippets site</span></li>
+            </ul>
         </main>
+
+        <footer>
+            <a href="https://gijs6.nl" rel="author noopener noreferrer">made by Gijs6</a>
+            &middot; <a href="https://contact.gijs6.nl/webmaster" rel="noopener noreferrer">webmaster contact</a>
+        </footer>
+
+        <script>
+            (function () {
+                const raw = new URLSearchParams(location.search).get("from");
+                const from = raw && /^[a-z0-9.-]{1,80}$/i.test(raw) ? raw : null;
+                if (from) {
+                    const line = document.getElementById("from-line");
+                    line.append("you tried to visit ");
+                    const code = document.createElement("code");
+                    code.textContent = from;
+                    line.append(code, ", but it doesn't exist anymore. or yet.");
+                    line.hidden = false;
+                    document.getElementById("curious-line").hidden = true;
+                }
+            })();
+        </script>
     </body>
 </html>
